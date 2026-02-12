@@ -1,0 +1,86 @@
+.toastContainer {
+  position: fixed;
+  top: var(--spacing-5);
+  right: var(--spacing-5);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.toast {
+  min-width: 300px;
+  padding: var(--spacing-4) var(--spacing-5);
+  border-radius: var(--global-radius-base);
+  box-shadow: var(--global-shadow-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: slideIn 0.3s ease-out;
+  cursor: pointer;
+  color: var(--global-text-white);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.toast.success {
+  background-color: var(--global-success);
+}
+
+.toast.error {
+  background-color: var(--global-error);
+}
+
+.toast.warning {
+  background-color: var(--global-warning);
+}
+
+.toast.info {
+  background-color: var(--global-point-primary);
+}
+
+.message {
+  flex: 1;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: var(--global-text-white);
+  font-size: var(--font-size-2xl);
+  cursor: pointer;
+  padding: 0;
+  margin-left: var(--spacing-3);
+  line-height: 1;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.closeButton:hover {
+  opacity: 1;
+}
+
+/* 반응형 */
+@media (max-width: 640px) {
+  .toastContainer {
+    top: auto;
+    bottom: var(--spacing-5);
+    left: var(--spacing-5);
+    right: var(--spacing-5);
+  }
+
+  .toast {
+    min-width: auto;
+  }
+}
